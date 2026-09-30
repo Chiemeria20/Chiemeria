@@ -155,7 +155,7 @@ function Home() {
         <div className="hero-copy">
           <div className="hero-index eyebrow">
             <span className="live-dot" aria-hidden="true" />
-            <span data-testid="text-location">Product design · Software &amp; web development · Lagos, Nigeria</span>
+            <span data-testid="text-location">Product design · Software developer · Lagos, Nigeria</span>
           </div>
           <h1 id="hero-title" data-testid="text-hero-title">
             Design for people.
@@ -165,7 +165,7 @@ function Home() {
             <span className="serif">real world.</span>
           </h1>
           <p className="hero-sub" data-testid="text-hero-introduction">
-            I’m <strong>Chiemeria</strong>, a product designer and software &amp; web developer.
+            I’m <strong>Chiemeria</strong>, a product designer and software developer.
             I turn ideas and real-world problems into digital experiences that are purposeful,
             intuitive, and built to work.
           </p>
@@ -196,7 +196,7 @@ function Home() {
           </div>
           <div className="visual-caption">
             <b>Meet Chiemeria</b>
-            Product design, software and web development.
+            Product design and software development.
           </div>
         </div>
         <a href="#story" className="scroll-cue" aria-label="Scroll to the about section" data-testid="link-scroll-story">
@@ -228,7 +228,7 @@ function Home() {
           <div className="story-body reveal" data-testid="text-about-story">
             <span className="quote-mark" aria-hidden="true">“</span>
             <p>
-              I’m a <strong>Product Designer and Software &amp; Web Developer</strong> who
+              I’m a <strong>Product Designer and Software Developer</strong> who
               turns ideas and real-world problems into simple, purposeful digital experiences.
             </p>
             <p>
@@ -334,7 +334,7 @@ function Home() {
             <article className="timeline-row reveal">
               <div className="timeline-date">Foundation</div>
               <div>
-                <div className="timeline-role">Software &amp; web development</div>
+                <div className="timeline-role">Software development</div>
                 <div className="timeline-org">Understanding how products work behind the interface</div>
               </div>
               <div className="timeline-context">A technical perspective that helps me think about how ideas can become working products.</div>
@@ -351,7 +351,7 @@ function Home() {
               <div className="timeline-date">Today</div>
               <div>
                 <div className="timeline-role">Design + development</div>
-                <div className="timeline-org">Product Designer and Software &amp; Web Developer</div>
+                <div className="timeline-org">Product Designer and Software Developer</div>
               </div>
               <div className="timeline-context">Bringing both disciplines together to create digital experiences that are intuitive and technically realistic.</div>
             </article>
