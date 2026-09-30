@@ -16,27 +16,33 @@ import paperSculpture from './assets/editorial-paper.jpg';
 
 const queryClient = new QueryClient();
 
-const projectPlaceholders = [
+const projects = [
   {
     number: '01',
-    title: '[Project title]',
+    title: 'Student Crowdfunding Platform',
     summary:
-      'A short account of the challenge, the people involved, and the change your work helped make possible.',
-    tags: ['[Discipline]', '[Contribution]', '[Year]'],
+      'A final-year team project for a student-focused crowdfunding platform. I led the UI/UX design, mapped key user flows, and worked with the development team as we built the product.',
+    outcome:
+      'Delivered the complete product design and contributed to a functional application presented as our final-year project.',
+    tags: ['Product design', 'UI/UX', 'Team project'],
   },
   {
     number: '02',
-    title: '[Project title]',
+    title: 'Car Spare Parts E-Commerce Platform',
     summary:
-      'A concise story about a meaningful piece of work: what was unclear at first, and what became clearer.',
-    tags: ['[Discipline]', '[Contribution]', '[Year]'],
+      'A collaborative e-commerce project during my ND program. I contributed to developing the idea, shaping product direction, and designing the interface.',
+    outcome:
+      'Helped turn the initial concept into a functional e-commerce solution through collaborative design and development.',
+    tags: ['Product development', 'UI/UX', 'E-commerce'],
   },
   {
     number: '03',
-    title: '[Project title]',
+    title: 'Client Website UI/UX Redesign',
     summary:
-      'Use this space for a different kind of work, perspective, or collaboration worth remembering.',
-    tags: ['[Discipline]', '[Contribution]', '[Year]'],
+      'A client project focused on making a website cleaner, more engaging, and easier to use through a considered UI/UX redesign.',
+    outcome:
+      'Presented the redesign concept to the client and received positive feedback on the proposed direction.',
+    tags: ['UI/UX design', 'Website redesign', 'Client project'],
   },
 ];
 
@@ -71,8 +77,8 @@ function Home() {
       <div className="shell">
         <header className="topbar" data-testid="header-portfolio">
           <a className="wordmark" href="#top" onClick={closeMenu} data-testid="link-home">
-            <span className="mark" aria-hidden="true">Y</span>
-            <span data-testid="text-name">[Your name]</span>
+            <span className="mark" aria-hidden="true">C</span>
+            <span data-testid="text-name">Chiemeria</span>
           </a>
           <nav className={`nav-links${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
             <a href="#story" onClick={closeMenu} data-testid="link-story">A little about me</a>
@@ -101,19 +107,19 @@ function Home() {
         <div className="hero-copy">
           <div className="hero-index eyebrow">
             <span className="live-dot" aria-hidden="true" />
-            <span data-testid="text-location">[Location / time zone] · [Availability / collaboration status]</span>
+            <span data-testid="text-location">Product design · Software &amp; web development · Lagos, Nigeria</span>
           </div>
           <h1 id="hero-title" data-testid="text-hero-title">
-            Make the
+            Design for people.
             <br />
-            complex
+            Build for the
             <br />
-            feel <span className="serif">clear.</span>
+            <span className="serif">real world.</span>
           </h1>
           <p className="hero-sub" data-testid="text-hero-introduction">
-            I’m <strong>[Your name]</strong>, a <strong>[your role or discipline]</strong>.
-            I help people turn ambitious ideas into work that feels useful, considered,
-            and unmistakably human.
+            I’m <strong>Chiemeria</strong>, a product designer and software &amp; web developer.
+            I turn ideas and real-world problems into digital experiences that are purposeful,
+            intuitive, and built to work.
           </p>
           <div className="hero-actions">
             <a href="#work" className="button-primary" data-testid="link-explore-work">
@@ -135,7 +141,7 @@ function Home() {
           </div>
           <div className="visual-caption">
             <b>A note on the work</b>
-            Ideas become more useful when they make room for people.
+            Technology should solve problems, not create more of them.
           </div>
         </div>
         <a href="#story" className="scroll-cue" aria-label="Scroll to the about section" data-testid="link-scroll-story">
@@ -146,7 +152,7 @@ function Home() {
       <aside className="intro-band" aria-label="Portfolio introduction">
         <div className="shell intro-band-inner">
           <span className="eyebrow">A practice in progress</span>
-          <p>Clear thinking. Generous collaboration. Work made to matter.</p>
+          <p>Thoughtful product design. Practical development. Experiences that work.</p>
         </div>
       </aside>
 
@@ -160,28 +166,27 @@ function Home() {
         <div className="story-grid">
           <div className="reveal">
             <p className="story-lead">
-              I’m drawn to the moment a complicated thing becomes <em>possible to understand.</em>
+              I bring design and development together to make digital products <em>clear, useful, and human.</em>
             </p>
-            <div className="signature">[Your name]</div>
+            <div className="signature">Chiemeria</div>
           </div>
           <div className="story-body reveal" data-testid="text-about-story">
             <span className="quote-mark" aria-hidden="true">“</span>
             <p>
-              My work sits at the intersection of <strong>[your areas of practice]</strong>.
-              I like finding the thread between what a team hopes to make and what people
-              actually need from it.
+              I’m a <strong>Product Designer and Software &amp; Web Developer</strong> who
+              turns ideas and real-world problems into simple, purposeful digital experiences.
             </p>
             <p>
-              Over time, I’ve learned to value the unglamorous parts: listening closely,
-              making the messy visible, and staying with a question long enough to find
-              an answer worth building. This is where I’ll share a little more about the
-              path that brought me here.
+              Development taught me how products work behind the interface. Product design
+              taught me to focus on the people using them. I bring both perspectives together
+              to make solutions that are useful, intuitive, and technically realistic.
             </p>
             <p>
-              Outside the work, I’m usually thinking about <strong>[something you’re curious
-              about]</strong> — and how paying attention changes what we notice.
+              I enjoy understanding how people think, simplifying complex problems, and
+              transforming ideas into products that look good, feel natural, and actually work.
             </p>
-            <div className="eyebrow">A point of view, still unfolding</div>
+            <p><strong>I don’t just design screens. I design experiences and build the systems behind them.</strong></p>
+            <div className="eyebrow">What drives my work: technology should solve problems, not create more.</div>
           </div>
         </div>
       </section>
@@ -195,27 +200,24 @@ function Home() {
             </h2>
           </div>
           <p className="work-intro reveal">
-            These spaces are ready for the projects that best show how you think, what you
-            value, and the difference your contribution made.
+            From a student crowdfunding platform to a client website redesign, each project
+            brought product thinking and practical collaboration into the work.
           </p>
           <div className="project-list" data-testid="list-selected-work">
-            {projectPlaceholders.map((project) => (
+            {projects.map((project) => (
               <article className="project reveal" key={project.number} data-testid={`card-project-${project.number}`}>
                 <span className="project-index">{project.number} /</span>
                 <div>
                   <h3>{project.title}</h3>
                   <p>{project.summary}</p>
-                  <div className="project-tags" aria-label="Project details to personalize">
+                  <p className="project-outcome"><strong>Outcome:</strong> {project.outcome}</p>
+                  <div className="project-tags" aria-label={`${project.title} disciplines`}>
                     {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
                 </div>
                 <ArrowUpRight className="project-arrow" size={19} strokeWidth={1.4} aria-hidden="true" />
               </article>
             ))}
-          </div>
-          <div className="project-placeholder-note">
-            <span>Replace each entry with a real project and your role in it.</span>
-            <span>No client names or claims are assumed.</span>
           </div>
         </div>
       </section>
@@ -224,36 +226,36 @@ function Home() {
         <div className="section-heading reveal">
           <span className="section-number eyebrow">03 / How I work</span>
           <h2 className="section-title" id="approach-title">
-            Thoughtful isn’t slow. It’s <span className="serif">intentional.</span>
+            Understand the problem. Make it <span className="serif">work for people.</span>
           </h2>
         </div>
         <div className="approach-intro reveal">
           <p>
-            The best process isn’t a performance. It is a way to make good decisions
-            together, keep the important things in view, and leave room for the work
-            to get better.
+            I start by understanding how people think and what is making a task harder than
+            it needs to be. Then I simplify the experience and work toward a solution that
+            feels natural and can be built with the technology available.
           </p>
         </div>
         <div className="principles">
           <article className="principle reveal">
-            <span className="principle-label">01 — Begin</span>
-            <h3>Find the real question.</h3>
-            <p>Listen first. Make assumptions visible. Agree on what success should mean.</p>
+            <span className="principle-label">01 — Understand</span>
+            <h3>Start with the people.</h3>
+            <p>Learn how people think, what they need, and where the real friction is.</p>
           </article>
           <article className="principle reveal">
-            <span className="principle-label">02 — Make</span>
-            <h3>Give ideas a shape.</h3>
-            <p>Bring the right people into the room and make early thinking tangible.</p>
+            <span className="principle-label">02 — Simplify</span>
+            <h3>Make complexity clearer.</h3>
+            <p>Turn broad ideas and difficult problems into focused product decisions.</p>
           </article>
           <article className="principle reveal">
-            <span className="principle-label">03 — Refine</span>
-            <h3>Choose with care.</h3>
-            <p>Use evidence and conversation to separate what is interesting from what is useful.</p>
+            <span className="principle-label">03 — Design</span>
+            <h3>Make the experience feel natural.</h3>
+            <p>Shape clear user flows and purposeful interfaces around what people need to do.</p>
           </article>
           <article className="principle reveal">
-            <span className="principle-label">04 — Finish</span>
-            <h3>Leave things clearer.</h3>
-            <p>Make the handoff thoughtful, the outcome understandable, and the next step easier.</p>
+            <span className="principle-label">04 — Build</span>
+            <h3>Keep it technically real.</h3>
+            <p>Bring development thinking into the process so the solution can work beyond the screen.</p>
           </article>
         </div>
       </section>
@@ -263,42 +265,42 @@ function Home() {
           <div className="section-heading reveal">
             <span className="section-number eyebrow">04 / A few chapters</span>
             <h2 className="section-title" id="path-title">
-              The path, not just <span className="serif">the titles.</span>
+              A path shaped by <span className="serif">building.</span>
             </h2>
           </div>
           <p className="timeline-note reveal">
-            A little context for the work. Add the roles, places, and turning points that
-            shaped the way you think today.
+            My development background and design practice have grown together. Each gives me
+            a different way to understand what makes a digital product useful.
           </p>
           <div className="timeline">
             <article className="timeline-row reveal">
-              <div className="timeline-date">[Year — Year]</div>
+              <div className="timeline-date">Foundation</div>
               <div>
-                <div className="timeline-role">[Role or chapter]</div>
-                <div className="timeline-org">[Organization or independent practice]</div>
+                <div className="timeline-role">Software &amp; web development</div>
+                <div className="timeline-org">Understanding how products work behind the interface</div>
               </div>
-              <div className="timeline-context">[What you learned, made, or helped change.]</div>
+              <div className="timeline-context">A technical perspective that helps me think about how ideas can become working products.</div>
             </article>
             <article className="timeline-row reveal">
-              <div className="timeline-date">[Year — Year]</div>
+              <div className="timeline-date">Perspective</div>
               <div>
-                <div className="timeline-role">[Role or chapter]</div>
-                <div className="timeline-org">[Organization or independent practice]</div>
+                <div className="timeline-role">Product design</div>
+                <div className="timeline-org">Focusing on the people using the product</div>
               </div>
-              <div className="timeline-context">[A concise detail that gives this chapter meaning.]</div>
+              <div className="timeline-context">A people-first way of finding where an experience can become clearer and easier to use.</div>
             </article>
             <article className="timeline-row reveal">
-              <div className="timeline-date">[Earlier years]</div>
+              <div className="timeline-date">Today</div>
               <div>
-                <div className="timeline-role">[A foundation worth mentioning]</div>
-                <div className="timeline-org">[Study, training, or early experience]</div>
+                <div className="timeline-role">Design + development</div>
+                <div className="timeline-org">Product Designer and Software &amp; Web Developer</div>
               </div>
-              <div className="timeline-context">[The beginning of an interest that stayed with you.]</div>
+              <div className="timeline-context">Bringing both disciplines together to create digital experiences that are intuitive and technically realistic.</div>
             </article>
           </div>
           <div className="timeline-footer">
-            <span>Keep this selective; a few meaningful chapters are enough.</span>
-            <span>— END OF THE SHORT VERSION —</span>
+            <span>Design for people. Build to solve real problems.</span>
+            <span>— ALWAYS LEARNING —</span>
           </div>
         </div>
       </section>
@@ -307,15 +309,25 @@ function Home() {
         <div className="contact-card reveal">
           <span className="contact-kicker eyebrow">05 / A good place to begin</span>
           <h2 id="contact-title">
-            Have a thoughtful <span className="serif">thing in mind?</span>
+            Have a real problem <span className="serif">to solve?</span>
           </h2>
           <div className="contact-bottom">
             <p>
-              Tell me what you’re working through, where you hope to go, or simply what
-              has caught your attention. I’d be glad to hear about it.
+              If you’re working on a digital product and need thoughtful design, practical
+              development, or both, I’d be glad to hear what you have in mind.
             </p>
-            <a className="contact-link" href="mailto:hello@yourdomain.com" data-testid="link-send-email">
-              <span>hello@[your-domain].com</span>
+            <a className="contact-link" href="mailto:darafavour18@gmail.com" data-testid="link-send-email">
+              <span>darafavour18@gmail.com</span>
+              <ArrowUpRight size={16} strokeWidth={1.5} aria-hidden="true" />
+            </a>
+            <a
+              className="contact-link social-contact-link"
+              href="https://www.linkedin.com/in/favour-dara-074a942ba"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="link-linkedin"
+            >
+              <span>Connect on LinkedIn</span>
               <ArrowUpRight size={16} strokeWidth={1.5} aria-hidden="true" />
             </a>
           </div>
@@ -323,10 +335,18 @@ function Home() {
       </section>
 
       <footer className="shell footer">
-        <span>© {new Date().getFullYear()} [Your name] · A practice in progress</span>
+        <span>© {new Date().getFullYear()} Chiemeria · Lagos, Nigeria</span>
         <div className="footer-right">
-          <a href="mailto:hello@yourdomain.com" data-testid="link-footer-email">Email</a>
-          <span>[Location / time zone]</span>
+          <a href="mailto:darafavour18@gmail.com" data-testid="link-footer-email">Email</a>
+          <a
+            href="https://www.linkedin.com/in/favour-dara-074a942ba"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-testid="link-footer-linkedin"
+          >
+            LinkedIn
+          </a>
+          <span>Lagos, Nigeria</span>
           <a href="#top" className="back-top" data-testid="link-back-to-top">
             Back to the beginning <ArrowUp size={12} strokeWidth={1.6} aria-hidden="true" />
           </a>
