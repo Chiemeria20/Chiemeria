@@ -196,7 +196,7 @@ function Home() {
           </div>
           <div className="visual-caption">
             <b>Meet Chiemeria</b>
-            Product design and software development.
+            Product designer and software developer.
           </div>
         </div>
         <a href="#story" className="scroll-cue" aria-label="Scroll to the about section" data-testid="link-scroll-story">
