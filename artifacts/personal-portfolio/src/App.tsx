@@ -12,7 +12,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
-import paperSculpture from './assets/editorial-paper.jpg';
+import portraitPhoto from './assets/chiemeria-portrait.jpg';
 
 const queryClient = new QueryClient();
 
@@ -20,6 +20,9 @@ const projects = [
   {
     number: '01',
     title: 'Student Crowdfunding Platform',
+    visual: 'crowdfunding',
+    bannerLabel: 'FINAL-YEAR TEAM PROJECT',
+    bannerTitle: 'A platform built around student ideas.',
     summary:
       'A final-year team project for a student-focused crowdfunding platform. I led the UI/UX design, mapped key user flows, and worked with the development team as we built the product.',
     outcome:
@@ -29,6 +32,9 @@ const projects = [
   {
     number: '02',
     title: 'Car Spare Parts E-Commerce Platform',
+    visual: 'ecommerce',
+    bannerLabel: 'ND PROGRAM · TEAM PROJECT',
+    bannerTitle: 'Car spare parts in an e-commerce concept.',
     summary:
       'A collaborative e-commerce project during my ND program. I contributed to developing the idea, shaping product direction, and designing the interface.',
     outcome:
@@ -38,6 +44,9 @@ const projects = [
   {
     number: '03',
     title: 'Client Website UI/UX Redesign',
+    visual: 'redesign',
+    bannerLabel: 'CLIENT PROJECT · REDESIGN CONCEPT',
+    bannerTitle: 'A clearer direction for a client website.',
     summary:
       'A client project focused on making a website cleaner, more engaging, and easier to use through a considered UI/UX redesign.',
     outcome:
@@ -45,6 +54,45 @@ const projects = [
     tags: ['UI/UX design', 'Website redesign', 'Client project'],
   },
 ];
+
+function ProjectBanner({ project }: { project: (typeof projects)[number] }) {
+  return (
+    <div className={`project-banner project-banner-${project.visual}`} aria-hidden="true">
+      <span className="project-banner-label">{project.bannerLabel}</span>
+      <div className={`banner-art banner-art-${project.visual}`}>
+        {project.visual === 'crowdfunding' && (
+          <div className="funding-orbit">
+            <span className="orbit-dot orbit-dot-one" />
+            <span className="orbit-dot orbit-dot-two" />
+            <span className="orbit-dot orbit-dot-three" />
+            <span className="orbit-core">IDEA</span>
+          </div>
+        )}
+        {project.visual === 'ecommerce' && (
+          <div className="parts-composition">
+            <span className="parts-gear parts-gear-large" />
+            <span className="parts-gear parts-gear-small" />
+            <span className="parts-card">AUTO<br />PARTS</span>
+          </div>
+        )}
+        {project.visual === 'redesign' && (
+          <div className="redesign-composition">
+            <div className="redesign-window">
+              <div className="redesign-window-bar"><i /><i /><i /></div>
+              <div className="redesign-window-content">
+                <span className="redesign-line redesign-line-short" />
+                <span className="redesign-line" />
+                <span className="redesign-line redesign-line-mid" />
+              </div>
+            </div>
+            <span className="redesign-monogram">UI<br />UX</span>
+          </div>
+        )}
+      </div>
+      <span className="project-banner-title">{project.bannerTitle}</span>
+    </div>
+  );
+}
 
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -131,17 +179,24 @@ function Home() {
             </a>
           </div>
         </div>
-        <div className="hero-visual" aria-label="Abstract paper sculpture in a palette of forest green and warm coral">
+        <div className="hero-visual" aria-label="Portrait of Chiemeria, product designer and software developer">
           <div className="hero-art">
-            <img src={paperSculpture} alt="A tactile composition of folded paper forms in warm coral, pale green, and deep forest" />
+            <img
+              className="portrait-image"
+              src={portraitPhoto}
+              alt="Chiemeria, smiling outdoors in Lagos"
+              width="1920"
+              height="2560"
+              fetchPriority="high"
+            />
           </div>
           <div className="hero-stamp" aria-hidden="true">
-            <span>THOUGHTFUL<br />BY DESIGN</span>
-            <i>WORK IN PROGRESS</i>
+            <span>DESIGN<br />+ BUILD</span>
+            <i>LAGOS, NIGERIA</i>
           </div>
           <div className="visual-caption">
-            <b>A note on the work</b>
-            Technology should solve problems, not create more of them.
+            <b>Meet Chiemeria</b>
+            Product design, software and web development.
           </div>
         </div>
         <a href="#story" className="scroll-cue" aria-label="Scroll to the about section" data-testid="link-scroll-story">
@@ -206,16 +261,19 @@ function Home() {
           <div className="project-list" data-testid="list-selected-work">
             {projects.map((project) => (
               <article className="project reveal" key={project.number} data-testid={`card-project-${project.number}`}>
-                <span className="project-index">{project.number} /</span>
-                <div>
-                  <h3>{project.title}</h3>
-                  <p>{project.summary}</p>
-                  <p className="project-outcome"><strong>Outcome:</strong> {project.outcome}</p>
-                  <div className="project-tags" aria-label={`${project.title} disciplines`}>
-                    {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                <ProjectBanner project={project} />
+                <div className="project-content">
+                  <span className="project-index">{project.number} /</span>
+                  <div>
+                    <h3>{project.title}</h3>
+                    <p>{project.summary}</p>
+                    <p className="project-outcome"><strong>Outcome:</strong> {project.outcome}</p>
+                    <div className="project-tags" aria-label={`${project.title} disciplines`}>
+                      {project.tags.map((tag) => <span key={tag}>{tag}</span>)}
+                    </div>
                   </div>
+                  <ArrowUpRight className="project-arrow" size={19} strokeWidth={1.4} aria-hidden="true" />
                 </div>
-                <ArrowUpRight className="project-arrow" size={19} strokeWidth={1.4} aria-hidden="true" />
               </article>
             ))}
           </div>

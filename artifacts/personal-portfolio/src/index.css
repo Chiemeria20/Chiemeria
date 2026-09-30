@@ -240,6 +240,13 @@
   overflow: hidden;
 }
 .hero-art img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; display: block; }
+.hero-art img.portrait-image {
+  object-position: center 31%;
+  transform: scale(1.35);
+  transform-origin: 50% 31%;
+  filter: saturate(1.04) contrast(1.03);
+  mix-blend-mode: normal;
+}
 .visual-caption {
   position: absolute; bottom: 0; left: -1%; z-index: 3;
   padding: 15px 18px; background: var(--paper); max-width: 205px;
@@ -296,22 +303,81 @@
 .work-intro { color: #bdc8bd; max-width: 490px; font-size: 14px; line-height: 1.8; margin: -33px 0 48px 32%; }
 .project-list { border-top: 1px solid rgba(244,241,231,.2); }
 .project {
-  display: grid; grid-template-columns: 80px 1fr auto; align-items: start; gap: 24px;
-  padding: 30px 8px; border-bottom: 1px solid rgba(244,241,231,.2);
-  text-decoration: none; transition: padding .3s ease, background .3s ease;
+  padding: 34px 8px 42px; border-bottom: 1px solid rgba(244,241,231,.2);
 }
-.project:hover { padding-left: 18px; padding-right: 18px; background: rgba(244,241,231,.035); }
+.project-banner {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 225px; padding: 22px 27px; margin-bottom: 23px; color: var(--ink);
+}
+.project-banner-crowdfunding { background: linear-gradient(112deg, #e5dccd 0%, #e5dccd 52%, #d6d7c8 100%); }
+.project-banner-ecommerce { background: linear-gradient(112deg, #c5d0c3 0%, #d8dfd3 100%); }
+.project-banner-redesign { background: linear-gradient(112deg, #dfd1c6 0%, #e8dfd4 100%); }
+.project-banner-label {
+  position: relative; z-index: 2; color: #59675d;
+  font: 9px var(--app-font-mono); letter-spacing: .12em;
+}
+.project-banner-title {
+  position: relative; z-index: 2; display: block; max-width: 490px;
+  font: italic clamp(25px, 3vw, 39px)/1.03 var(--app-font-serif);
+  letter-spacing: -.035em; color: var(--ink);
+}
+.banner-art { position: absolute; inset: 0; pointer-events: none; }
+.banner-art-crowdfunding::before,
+.banner-art-crowdfunding::after {
+  content: ''; position: absolute; right: 13%; top: 50%; aspect-ratio: 1;
+  border: 1px solid rgba(33, 58, 49, .28); border-radius: 50%;
+  transform: translateY(-50%);
+}
+.banner-art-crowdfunding::before { width: 148px; box-shadow: 0 0 0 20px rgba(33,58,49,.045), 0 0 0 42px rgba(33,58,49,.035); }
+.banner-art-crowdfunding::after { width: 98px; right: calc(13% + 25px); border-color: rgba(211, 105, 82, .65); }
+.funding-orbit { position: absolute; right: calc(13% + 45px); top: 50%; width: 58px; height: 58px; transform: translateY(-50%); }
+.orbit-core {
+  display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%;
+  background: var(--coral); color: var(--paper); font: 9px var(--app-font-mono); letter-spacing: .08em;
+}
+.orbit-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); }
+.orbit-dot-one { top: -40px; left: 27px; }
+.orbit-dot-two { bottom: -21px; left: -22px; background: var(--coral); }
+.orbit-dot-three { right: -31px; bottom: 5px; }
+.parts-gear {
+  position: absolute; top: 50%; border: 2px dashed rgba(33,58,49,.38);
+  border-radius: 50%; transform: translateY(-50%) rotate(18deg);
+}
+.parts-gear-large { right: 11%; width: 169px; height: 169px; }
+.parts-gear-small { right: calc(11% + 31px); width: 107px; height: 107px; border-style: solid; }
+.parts-card {
+  position: absolute; right: calc(11% + 37px); top: 50%; padding: 15px 20px;
+  transform: translateY(-50%) rotate(-7deg); background: var(--ink); color: var(--paper);
+  font: 10px/1.4 var(--app-font-mono); letter-spacing: .1em;
+}
+.redesign-window {
+  position: absolute; top: 50%; right: 13%; width: min(270px, 43%);
+  height: 145px; transform: translateY(-50%) rotate(-3deg);
+  border: 1px solid rgba(33,58,49,.35); background: rgba(250,248,242,.76);
+}
+.redesign-window-bar { display: flex; align-items: center; gap: 5px; height: 21px; padding: 0 9px; border-bottom: 1px solid rgba(33,58,49,.2); }
+.redesign-window-bar i { width: 5px; height: 5px; border-radius: 50%; background: var(--coral); }
+.redesign-window-content { display: grid; gap: 10px; padding: 18px 14px; }
+.redesign-line { display: block; width: 76%; height: 5px; background: rgba(33,58,49,.28); }
+.redesign-line-short { width: 45%; height: 12px; background: var(--ink); }
+.redesign-line-mid { width: 60%; }
+.redesign-monogram {
+  position: absolute; right: 5%; top: 28%; color: var(--coral);
+  font: italic 39px/.82 var(--app-font-serif);
+}
+.project-content {
+  display: grid; grid-template-columns: 80px 1fr auto; align-items: start; gap: 24px;
+}
 .project-index { font: 11px var(--app-font-mono); color: #9eaea1; padding-top: 5px; }
 .project h3 { font-size: 26px; line-height: 1.1; letter-spacing: -.045em; font-weight: 500; margin: 0 0 9px; }
 .project p { margin: 0; color: #b9c4b8; font-size: 12px; line-height: 1.6; max-width: 520px; }
 .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
 .project-tags span { font: 9px var(--app-font-mono); text-transform: uppercase; letter-spacing: .08em; border: 1px solid rgba(244,241,231,.24); padding: 6px 8px; color: #c5cec4; }
-.project-outcome { color: #c5cec4; font-size: 12px; line-height: 1.7; margin: 14px 0 0; }
-.project-outcome strong { color: #e9886d; font-weight: 500; }
+.project p.project-outcome { color: #c5cec4; font-size: 12px; line-height: 1.7; margin: 14px 0 0; }
+.project p.project-outcome strong { color: #e9886d; font-weight: 500; }
 .project-arrow { color: #e9886d; transition: transform .25s ease; margin-top: 5px; }
 .project:hover .project-arrow { transform: translate(3px, -3px); }
-.project-placeholder-note { display: flex; justify-content: space-between; align-items: center; margin-top: 21px; color: #aab8ab; font: 10px var(--app-font-mono); }
-.project-placeholder-note span:last-child { color: #e9886d; }
 
 .approach-section { padding-bottom: 130px; }
 .approach-intro { display: flex; justify-content: flex-end; margin-top: -35px; }
@@ -419,12 +485,28 @@
   .story-lead { font-size: 29px; }
   .story-body { font-size: 13px; }
   .work-intro { margin: -16px 0 38px; font-size: 13px; }
-  .project { grid-template-columns: 38px 1fr auto; gap: 12px; padding: 23px 0; }
+  .project { padding: 24px 0 30px; }
+  .project-banner { min-height: 180px; padding: 17px 18px; margin-bottom: 18px; }
+  .project-banner-label { font-size: 8px; }
+  .project-banner-title { max-width: 70%; font-size: 27px; }
+  .banner-art-crowdfunding::before { width: 115px; right: 8%; }
+  .banner-art-crowdfunding::after { width: 75px; right: calc(8% + 20px); }
+  .funding-orbit { right: calc(8% + 28px); width: 48px; height: 48px; }
+  .orbit-core { width: 48px; height: 48px; font-size: 8px; }
+  .orbit-dot-one { top: -32px; left: 22px; }
+  .orbit-dot-two { bottom: -16px; left: -17px; }
+  .orbit-dot-three { right: -25px; bottom: 5px; }
+  .parts-gear-large { right: 5%; width: 132px; height: 132px; }
+  .parts-gear-small { right: calc(5% + 24px); width: 83px; height: 83px; }
+  .parts-card { right: calc(5% + 27px); padding: 12px 15px; font-size: 8px; }
+  .redesign-window { right: 7%; width: 48%; height: 122px; }
+  .redesign-monogram { right: 2%; font-size: 31px; }
+  .project-content { grid-template-columns: 38px 1fr auto; gap: 12px; }
   .project h3 { font-size: 21px; }
   .project p { font-size: 11px; }
+  .project p.project-outcome { font-size: 11px; }
   .project-tags { gap: 6px; }
   .project-tags span { font-size: 8px; padding: 5px 6px; }
-  .project-placeholder-note { align-items: flex-start; gap: 10px; font-size: 8px; }
   .approach-intro { margin-top: -17px; }
   .approach-intro p { font-size: 13px; }
   .principles { margin-top: 42px; }
